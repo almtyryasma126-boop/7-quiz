@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT361 - Web Technologies Comprehensive Quiz</title>
+    <title>IT361 - Module 7 Fixed Interactive Quiz</title>
     <style>
         :root {
-            --primary-color: #0076a3;
-            --secondary-color: #004d6b;
+            --primary-color: #e67e22;
+            --secondary-color: #d35400;
             --bg-color: #faf8f5;
             --card-bg: #ffffff;
             --text-color: #333333;
-            --success-color: #2ecc71;
-            --error-color: #e74c3c;
-            --gray-color: #7f8c8d;
         }
 
         body {
@@ -62,7 +59,7 @@
         }
 
         .question-card {
-            display: none; /* إخفاء جميع الأسئلة افتراضياً */
+            display: none; 
             background: #fdfdfd;
             border: 1px solid #eef2f5;
             border-radius: 8px;
@@ -71,7 +68,7 @@
         }
 
         .question-card.active {
-            display: block; /* إظهار السؤال النشط فقط */
+            display: block; 
         }
 
         .question-text {
@@ -79,19 +76,6 @@
             font-weight: bold;
             margin-bottom: 20px;
             color: var(--secondary-color);
-        }
-
-        .code-block {
-            background: #272822;
-            color: #f8f8f2;
-            padding: 12px;
-            border-radius: 6px;
-            font-family: 'Courier New', Courier, monospace;
-            text-align: left;
-            margin-bottom: 15px;
-            overflow-x: auto;
-            font-size: 14px;
-            white-space: pre;
         }
 
         .options-list {
@@ -104,24 +88,46 @@
             margin-bottom: 12px;
         }
 
-        .option-label {
+        .option-btn {
             display: block;
+            width: 100%;
             padding: 14px 15px;
             background: #f8f9fa;
             border: 1px solid #dcdde1;
             border-radius: 6px;
             cursor: pointer;
-            transition: background 0.2s;
+            text-align: left;
             font-size: 15px;
+            font-family: inherit;
+            color: var(--text-color);
+            transition: all 0.1s ease;
         }
 
-        .option-label:hover {
-            background: #f1f2f6;
+        .option-btn:hover {
+            background: #eef2f5;
         }
 
-        .option-item input[type="radio"] {
-            margin-right: 12px;
-            transform: scale(1.1);
+        /* Classes applied directly by JS on click */
+        .correct-ans {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+            color: #155724 !important;
+            font-weight: bold;
+        }
+
+        .incorrect-ans {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+            color: #721c24 !important;
+        }
+
+        /* Disables clicking after selection */
+        .disabled-group .option-btn {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .disabled-group .correct-ans, .disabled-group .incorrect-ans {
+            opacity: 1 !important;
         }
 
         .navigation-buttons {
@@ -200,7 +206,7 @@
 
 <div class="container">
     <div class="header">
-        <h1>IT361: Web Technologies - Multi-Step Quiz</h1>
+        <h1>IT361: Web Technologies - Module 7 Instant Assessment</h1>
         <p id="question-counter">Question 1 of 25</p>
     </div>
 
@@ -208,265 +214,262 @@
         <div class="progress-bar" id="progress-bar"></div>
     </div>
 
-    <form id="quiz-form">
+    <div id="quiz-form">
         <div class="question-card active" data-q="1">
-            <div class="question-text">Q1: Which approach is recommended to develop and maintain a large program by constructing it from small, simple pieces?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="A"> Linear Design approach</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="B"> Divide and Conquer approach</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="C"> Monolithic Structure approach</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="D"> Encapsulated Array approach</label></li>
-            </ul>
+            <div class="question-text">Q1: What is the primary approach used to develop and maintain a large program by dividing it into small, simple pieces?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(1, 'A', this)">A) Multiple inheritance approach</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(1, 'B', this)">B) Divide and conquer approach</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(1, 'C', this)">C) Concentrated system approach</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(1, 'D', this)">D) Static formatting approach</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="2">
-            <div class="question-text">Q2: Prepackaged functions belonging to JavaScript objects (such as Math.pow) are specifically called:</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="A"> Properties</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="B"> Methods</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="C"> Handlers</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="D"> Parameters</label></li>
-            </ul>
+            <div class="question-text">Q2: Variables defined inside a JavaScript function definition are considered to have:</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(2, 'A', this)">A) Global scope</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(2, 'B', this)">B) Universal memory block</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(2, 'C', this)">C) Local scope</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(2, 'D', this)">D) External system scope</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="3">
-            <div class="question-text">Q3: How are programmer-defined functions invoked in JavaScript?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q3" value="A"> By writing the function name preceded by a dot operator</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q3" value="B"> By using the new operator keyword</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q3" value="C"> By writing the name of the function, followed by a left parenthesis, a comma-separated list of arguments, and a right parenthesis</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q3" value="D"> By declaring a var object initializer list</label></li>
-            </ul>
+            <div class="question-text">Q3: Which keyword is explicitly used to pass a value back from a function to its caller?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(3, 'A', this)">A) respond</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(3, 'B', this)">B) output</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(3, 'C', this)">C) return</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(3, 'D', this)">D) send</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="4">
-            <div class="question-text">Q4: Function and method arguments may consist of:</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="A"> Only constant numeric literal values</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="B"> Constants, variables, or expressions</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="C"> Strictly multidimensional array objects</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="D"> Global JSON keys only</label></li>
-            </ul>
+            <div class="question-text">Q4: If a function terminates without an explicit return statement, what value does it automatically return?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(4, 'A', this)">A) null</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(4, 'B', this)">B) undefined</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(4, 'C', this)">C) 0</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(4, 'D', this)">D) false</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="5">
-            <div class="question-text">Q5: According to Common Programming Error 9.1, forgetting to return a value from a function that is supposed to return a value is a:</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="A"> Syntax error</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="B"> Runtime error</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="C"> Logic error</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="D"> Compilation error</label></li>
-            </ul>
+            <div class="question-text">Q5: JavaScript parameters are always passed to functions using which method?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(5, 'A', this)">A) Pass-by-reference</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(5, 'B', this)">B) Pass-by-value</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(5, 'C', this)">C) Pass-by-pointer</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(5, 'D', this)">D) Pass-by-address</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="6">
-            <div class="question-text">Q6: All variables declared with the keyword 'var' inside function definitions are:</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="A"> Global variables accessible by all scripts</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="B"> Local variables accessible only in the function in which they are defined</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="C"> Stored permanently inside the document DOM</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="D"> Re-evaluated as JSON strings automatically</label></li>
-            </ul>
+            <div class="question-text">Q6: Which JavaScript built-in function parses a string argument and returns a floating-point number?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(6, 'A', this)">A) parseInt()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(6, 'B', this)">B) parseFloat()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(6, 'C', this)">C) stringToNum()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(6, 'D', this)">D) Number.float()</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="7">
-            <div class="question-text">Q7: What is considered a logic error under Common Programming Error 9.2?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="A"> Forgetting the left parenthesis in a function call</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="B"> Redefining a function parameter as a local variable in the function</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="C"> Omitting the semicolon at the end of an initialization expression</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="D"> Returning an empty string from charAt()</label></li>
-            </ul>
+            <div class="question-text">Q7: An array in JavaScript is technically considered what data type category?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(7, 'A', this)">A) Primitive element</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(7, 'B', this)">B) String variation</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(7, 'C', this)">C) Object</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(7, 'D', this)">D) Boolean operator</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="8">
-            <div class="question-text">Q8: JavaScript provides how many built-in global functions as part of a Global object?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="A"> Three (3)</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="B"> Five (5)</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="C"> Nine (9)</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="D"> Twelve (12)</label></li>
-            </ul>
+            <div class="question-text">Q8: Which operator or keyword is used to allocate memory dynamically when creating a new Array object?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(8, 'A', this)">A) allocation</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(8, 'B', this)">B) var</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(8, 'C', this)">C) create</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(8, 'D', this)">D) new</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="9">
-            <div class="question-text">Q9: What does the global function isFinite() return if the argument value is +infinity, -infinity, or NaN?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="A"> true</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="B"> false</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="C"> NaN</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="D"> TypeError</label></li>
-            </ul>
+            <div class="question-text">Q9: What is the index number of the very first element in any JavaScript array?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(9, 'A', this)">A) 1</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(9, 'B', this)">B) -1</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(9, 'C', this)">C) 0</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(9, 'D', this)">D) null</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="10">
-            <div class="question-text">Q10: What value is returned by parseInt("abc123")?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q10" value="A"> 123</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q10" value="B"> abc</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q10" value="C"> NaN</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q10" value="D"> false</label></li>
-            </ul>
+            <div class="question-text">Q10: Which array property returns the total number of elements currently stored within the array?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(10, 'A', this)">A) length</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(10, 'B', this)">B) size</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(10, 'C', this)">C) elementsCount</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(10, 'D', this)">D) indexLength</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="11">
-            <div class="question-text">Q11: An array in JavaScript is an instance of which built-in object type?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q11" value="A"> Vector object</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q11" value="B"> Matrix object</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q11" value="C"> Array object</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q11" value="D"> Collection object</label></li>
-            </ul>
+            <div class="question-text">Q11: Arrays that use two indices (one for rows, one for columns) to represent tabular information are called:</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(11, 'A', this)">A) Lineal arrays</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(11, 'B', this)">B) Multidimensional (two-dimensional) arrays</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(11, 'C', this)">C) Single-index matrices</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(11, 'D', this)">D) Combined structural pointers</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="12">
-            <div class="question-text">Q12: What will be stored in the third element (index 2) of the array created by: var n = [10, 20, , 40, 50];?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q12" value="A"> 0</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q12" value="B"> null</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q12" value="C"> undefined</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q12" value="D"> NaN</label></li>
-            </ul>
+            <div class="question-text">Q12: In JavaScript, can an array contain elements of different data types (e.g., strings and numbers mixed)?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(12, 'A', this)">A) No, arrays can store only one data type exclusively</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(12, 'B', this)">B) Yes, elements in an array can be of any diverse data types</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(12, 'C', this)">C) Only if initialized using square brackets directly</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(12, 'D', this)">D) No, unless it is a JSON string data stream</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="13">
-            <div class="question-text">Q13: To pass an array argument to a function, you specify:</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q13" value="A"> The array name followed by empty square brackets []</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q13" value="B"> The array name (a reference to the array) without brackets</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q13" value="C"> The length attribute combined with a pointer value</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q13" value="D"> The total byte allocation space explicitly</label></li>
-            </ul>
+            <div class="question-text">Q13: Which method of the Math object rounds a given number up to the smallest integer not less than its argument?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(13, 'A', this)">A) Math.floor()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(13, 'B', this)">B) Math.round()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(13, 'C', this)">C) Math.ceil()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(13, 'D', this)">D) Math.abs()</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="14">
-            <div class="question-text">Q14: If a targeted key value is not located within an array during an indexOf or lastIndexOf search, what is returned?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q14" value="A"> false</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q14" value="B"> null</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q14" value="C"> -1</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q14" value="D"> undefined</label></li>
-            </ul>
+            <div class="question-text">Q14: What range of floating-point values does the built-in Math.random() function generate?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(14, 'A', this)">A) 0.0 up to, but not including, 1.0</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(14, 'B', this)">B) 1.0 to 100.0 inclusive</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(14, 'C', this)">C) -1.0 to +1.0</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(14, 'D', this)">D) 0.0 to 10.0 including end boundary parameters</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="15">
-            <div class="question-text">Q15: Examine the code block below. What is the total row allocation count for multidimensional array 'b'?</div>
-            <div class="code-block">var b = new Array(2);
-b[0] = new Array(5);
-b[1] = new Array(3);</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q15" value="A"> 5 rows</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q15" value="B"> 3 rows</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q15" value="C"> 2 rows</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q15" value="D"> 8 rows</label></li>
-            </ul>
+            <div class="question-text">Q15: Which String method returns the character located at a specific index position passed as an argument?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(15, 'A', this)">A) charCodeAt()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(15, 'B', this)">B) charAt()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(15, 'C', this)">C) indexOf()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(15, 'D', this)">D) split()</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="16">
-            <div class="question-text">Q16: Which loop structure is explicitly highlighted as equivalent to basic 'for' statements to iterate and manipulate matrix rows dynamically?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q16" value="A"> do...while loop</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q16" value="B"> for...in loop</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q16" value="C"> nested switch block</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q16" value="D"> while loop closure</label></li>
-            </ul>
+            <div class="question-text">Q16: Which String method splits a single string into an array of separate substrings based on a delimiter character?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(16, 'A', this)">A) concat()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(16, 'B', this)">B) join()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(16, 'C', this)">C) slice()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(16, 'D', this)">D) split()</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="17">
-            <div class="question-text">Q17: What value is returned by evaluating Math.ceil(-9.8)?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q17" value="A"> -10.0</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q17" value="B"> -9.0</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q17" value="C"> 9.0</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q17" value="D"> 10.0</label></li>
-            </ul>
+            <div class="question-text">Q17: Creating a new instance of a Date object using "new Date()" without passing any arguments initializes it to:</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(17, 'A', this)">A) January 1, 1970</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(17, 'B', this)">B) The current local date and time of the system browser</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(17, 'C', this)">C) December 31, 2000</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(17, 'D', this)">D) A random calendar coordinate</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="18">
-            <div class="question-text">Q18: What value is returned by evaluating Math.floor(-9.8)?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q18" value="A"> -10.0</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q18" value="B"> -9.0</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q18" value="C"> 9.2</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q18" value="D"> -9.8</label></li>
-            </ul>
+            <div class="question-text">Q18: What does the acronym JSON stand for?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(18, 'A', this)">A) JavaScript Object Model</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(18, 'B', this)">B) Java Structured Output Notation</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(18, 'C', this)">C) JavaScript Object Notation</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(18, 'D', this)">D) Joint System Node Network</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="19">
-            <div class="question-text">Q19: Which text encoding system does JavaScript support to represent a large portion of the world's languages?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q19" value="A"> ASCII-7 only</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q19" value="B"> Unicode</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q19" value="C"> EBCDIC base</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q19" value="D"> Binary Octal</label></li>
-            </ul>
+            <div class="question-text">Q19: Which notation format characters are explicitly used to wrap a valid JSON object block?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(19, 'A', this)">A) Curly braces { }</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(19, 'B', this)">B) Square brackets [ ]</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(19, 'C', this)">C) Parentheses ( )</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(19, 'D', this)">D) Angle tags &lt; &gt;</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="20">
-            <div class="question-text">Q20: What will string.charCodeAt(index) return if the targeted evaluation index is outside the bounds of the string?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q20" value="A"> An empty string ("")</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q20" value="B"> null</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q20" value="C"> NaN</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q20" value="D"> -1</label></li>
-            </ul>
+            <div class="question-text">Q20: In a JSON object dataset mapping, property names and their corresponding string values MUST be wrapped inside:</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(20, 'A', this)">A) Single quotes ( ' )</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(20, 'B', this)">B) Double quotes ( " )</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(20, 'C', this)">C) Backticks ( ` )</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(20, 'D', this)">D) Parentheses parameters</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="21">
-            <div class="question-text">Q21: A new Date object instantiated with the Date constructor containing NO arguments initializes with:</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q21" value="A"> Midnight, January 1, 1970</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q21" value="B"> The local computer's current date and time</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q21" value="C"> Standard Coordinated Universal Time (UTC) base zero</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q21" value="D"> An undefined variable state</label></li>
-            </ul>
+            <div class="question-text">Q21: Which method of the JSON global object converts a JavaScript object into a standard string representation for data transmission?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(21, 'A', this)">A) JSON.parse()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(21, 'B', this)">B) JSON.stringify()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(21, 'C', this)">C) JSON.toObject()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(21, 'D', this)">D) JSON.convert()</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="22">
-            <div class="question-text">Q22: For the Date object getMonth() method, what number represents the month of December?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q22" value="A"> 12</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q22" value="B"> 11</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q22" value="C"> 0</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q22" value="D"> 10</label></li>
-            </ul>
+            <div class="question-text">Q22: Which array method adds a new element to the end of an array and automatically increments its length?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(22, 'A', this)">A) pop()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(22, 'B', this)">B) push()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(22, 'C', this)">C) shift()</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(22, 'D', this)">D) unshift()</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="23">
-            <div class="question-text">Q23: If 'var b = new Boolean(0);' is declared, what boolean state value will this new Boolean object wrapper hold?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q23" value="A"> true</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q23" value="B"> false</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q23" value="C"> null</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q23" value="D"> NaN</label></li>
-            </ul>
+            <div class="question-text">Q23: An object attribute that stores a function definition value is called a:</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(23, 'A', this)">A) Property</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(23, 'B', this)">B) Constant vector</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(23, 'C', this)">C) Method</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(23, 'D', this)">D) Variable branch</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="24">
-            <div class="question-text">Q24: Which browser-provided object allows JavaScript code to manipulate the structural current HTML document within the browser view?</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q24" value="A"> Window object</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q24" value="B"> document object</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q24" value="C"> JSON wrapper</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q24" value="D"> Global handler</label></li>
-            </ul>
+            <div class="question-text">Q24: Which keyword can be used within an object's method to reference the calling object itself?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(24, 'A', this)">A) this</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(24, 'B', this)">B) self</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(24, 'C', this)">C) object</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(24, 'D', this)">D) parent</button></div>
+            </div>
         </div>
 
         <div class="question-card" data-q="25">
-            <div class="question-text">Q25: JSON (JavaScript Object Notation) was prominently introduced to the internet data exchange landscape as an alternative to:</div>
-            <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q25" value="A"> HTML5 elements</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q25" value="B"> CSS stylesheets</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q25" value="C"> XML</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q25" value="D"> Unicode arrays</label></li>
-            </ul>
+            <div class="question-text">Q25: What syntax format characters are used to represent an array layout inside JSON strings?</div>
+            <div class="options-list">
+                <div class="option-item"><button class="option-btn" data-choice="A" onclick="checkImmediate(25, 'A', this)">A) Square brackets [ ]</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="B" onclick="checkImmediate(25, 'B', this)">B) Curly braces { }</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="C" onclick="checkImmediate(25, 'C', this)">C) Quotes " "</button></div>
+                <div class="option-item"><button class="option-btn" data-choice="D" onclick="checkImmediate(25, 'D', this)">D) Colon parameters :</button></div>
+            </div>
         </div>
 
         <div class="navigation-buttons" id="nav-block">
             <button type="button" class="btn btn-prev" id="btn-prev" onclick="changeQuestion(-1)" disabled>Previous</button>
             <button type="button" class="btn btn-next" id="btn-next" onclick="changeQuestion(1)">Next</button>
         </div>
-    </form>
+    </div>
 
     <div id="result-section">
         <h2>Quiz Completed!</h2>
@@ -479,24 +482,24 @@ b[1] = new Array(3);</div>
 <script>
     let currentStep = 1;
     const totalQuestions = 25;
+    let score = 0;
     
+    const userHistory = {};
+
     const answers = {
-        q1: 'B', q2: 'B', q3: 'C', q4: 'B', q5: 'C',
-        q6: 'B', q7: 'B', q8: 'C', q9: 'B', q10: 'C',
-        q11: 'C', q12: 'C', q13: 'B', q14: 'C', q15: 'C',
-        q16: 'B', q17: 'B', q18: 'A', q19: 'B', q20: 'C',
-        q21: 'B', q22: 'B', q23: 'B', q24: 'B', q25: 'C'
+        q1: 'B', q2: 'C', q3: 'C', q4: 'B', q5: 'B',
+        q6: 'B', q7: 'C', q8: 'D', q9: 'C', q10: 'A',
+        q11: 'B', q12: 'B', q13: 'C', q14: 'A', q15: 'B',
+        q16: 'D', q17: 'B', q18: 'C', q19: 'A', q20: 'B',
+        q21: 'B', q22: 'B', q23: 'C', q24: 'A', q25: 'A'
     };
 
     function updateUI() {
-        // تحديث عداد الأسئلة العلوي شريط العنوان
         document.getElementById('question-counter').innerText = `Question ${currentStep} of ${totalQuestions}`;
         
-        // تحديث عرض شريط التقدم الملون
         const progressPercent = (currentStep / totalQuestions) * 100;
         document.getElementById('progress-bar').style.width = `${progressPercent}%`;
 
-        // إظهار السؤال الحالي وإخفاء البقية
         document.querySelectorAll('.question-card').forEach((card, index) => {
             if (index + 1 === currentStep) {
                 card.classList.add('active');
@@ -505,21 +508,46 @@ b[1] = new Array(3);</div>
             }
         });
 
-        // التحكم في أزرار السابق والتالي/الإرسال
         document.getElementById('btn-prev').disabled = (currentStep === 1);
         
         if (currentStep === totalQuestions) {
-            document.getElementById('btn-next').innerText = "Submit Answers";
+            document.getElementById('btn-next').innerText = "Finish & See Results";
             document.getElementById('btn-next').style.backgroundColor = "#2ecc71";
         } else {
             document.getElementById('btn-next').innerText = "Next";
-            document.getElementById('btn-next').style.backgroundColor = "#0076a3";
+            document.getElementById('btn-next').style.backgroundColor = "#e67e22";
         }
+    }
+
+    function checkImmediate(qNum, selectedValue, targetBtn) {
+        // Anti-duplicate protection
+        if (userHistory[`q${qNum}`]) return;
+        
+        userHistory[`q${qNum}`] = selectedValue;
+        const correctValue = answers[`q${qNum}`];
+        const card = targetBtn.closest('.question-card');
+        
+        if (selectedValue === correctValue) {
+            targetBtn.classList.add('correct-ans');
+            score++;
+        } else {
+            targetBtn.classList.add('incorrect-ans');
+            
+            // Explicitly scan data attribute identifiers for immediate correction
+            const buttons = card.querySelectorAll('.option-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-choice') === correctValue) {
+                    btn.classList.add('correct-ans');
+                }
+            });
+        }
+        
+        card.classList.add('disabled-group');
     }
 
     function changeQuestion(direction) {
         if (direction === 1 && currentStep === totalQuestions) {
-            calculateScore();
+            showFinalResults();
             return;
         }
 
@@ -530,33 +558,22 @@ b[1] = new Array(3);</div>
         updateUI();
     }
 
-    function calculateScore() {
-        let score = 0;
-
-        for (let i = 1; i <= totalQuestions; i++) {
-            const selected = document.querySelector(`input[name="q${i}"]:checked`);
-            if (selected && selected.value === answers[`q${i}`]) {
-                score++;
-            }
-        }
-
-        // إخفاء نموذج الأسئلة وشريط التقدم تماماً
+    function showFinalResults() {
         document.getElementById('quiz-form').style.display = 'none';
         document.querySelector('.progress-container').style.display = 'none';
         document.getElementById('question-counter').style.display = 'none';
 
-        // عرض واجهة النتيجة الإجمالية
         const resultSection = document.getElementById('result-section');
         resultSection.style.display = 'block';
         document.getElementById('score-text').innerText = `${score} / ${totalQuestions}`;
 
         const feedbackText = document.getElementById('feedback-text');
         if (score >= 20) {
-            feedbackText.innerHTML = "<strong>Outstanding Performance!</strong><br>You have perfectly mastered the core concepts of JavaScript functions, arrays, and objects.";
+            feedbackText.innerHTML = "<strong>Fantastic Performance!</strong><br>You have perfectly mastered JavaScript functions, arrays, and object fundamentals!";
         } else if (score >= 13) {
-            feedbackText.innerHTML = "<strong>Good Job!</strong><br>You passed the assessment. Review the built-in methods and array boundary conditions to achieve full marks.";
+            feedbackText.innerHTML = "<strong>Good Job!</strong><br>You passed the assessment. Keep studying objects and build confidence.";
         } else {
-            feedbackText.innerHTML = "<strong>Needs Review.</strong><br>We highly recommend reviewing chapters 9, 10, and 11 of the lecture material and trying again.";
+            feedbackText.innerHTML = "<strong>Needs Work.</strong><br>We advise you to review Module 7 slides carefully and try again.";
         }
     }
 </script>
