@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار تقنيات الويب (IT361) - أساسيات JavaScript</title>
+    <title>IT361 - Web Technologies Quiz (Basics of JavaScript)</title>
     <style>
         :root {
             --primary-color: #0076a3;
@@ -21,6 +21,7 @@
             color: var(--text-color);
             margin: 0;
             padding: 20px;
+            direction: ltr;
         }
 
         .container {
@@ -72,7 +73,6 @@
             padding: 12px;
             border-radius: 6px;
             font-family: 'Courier New', Courier, monospace;
-            direction: ltr;
             text-align: left;
             margin-bottom: 15px;
             overflow-x: auto;
@@ -104,7 +104,7 @@
         }
 
         .option-item input[type="radio"] {
-            margin-left: 10px;
+            margin-right: 10px;
         }
 
         .btn-submit {
@@ -139,6 +139,7 @@
             border-radius: 4px;
             font-size: 14px;
             display: none;
+            font-weight: 500;
         }
 
         .correct-answer {
@@ -156,35 +157,38 @@
 
 <div class="container">
     <div class="header">
-        <h1>اختبار الموديول الذاتي المطور (IT361 - Web Technologies)</h1>
-        <p>جامعة الإلكترونية السعودية - موديول جافا سكريبت والمصفوفات والكائنات</p>
+        <h1>IT361: Web Technologies Self-Assessment Quiz</h1>
+        <p>Saudi Electronic University - Module: Basics of JavaScript & Objects</p>
     </div>
 
     <form id="quiz-form">
+        <!-- Question 1 -->
         <div class="question-card" data-q="1">
-            <div class="question-text">س1: ما هو الاسم الذي يطلق على الدوال المدمجة مسبقاً (Prepackaged functions) والتي تنتمي إلى كائنات جافا سكريبت (مثل Math.pow)؟</div>
+            <div class="question-text">Q1: What are the prepackaged functions that belong to JavaScript objects (such as Math.pow) called?[span_0](start_span)[span_0](end_span)</div>
             <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="A"> Properties (الخصائص)</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="B"> Scripts (البرمجيات)</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="C"> Methods (الأساليب / الطرق)</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="D"> Modules (النماذج)</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="A"> Properties</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="B"> Scripts</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="C"> Methods</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q1" value="D"> Modules</label></li>
             </ul>
             <div class="rationale" id="rat1"></div>
         </div>
 
+        <!-- Question 2 -->
         <div class="question-card" data-q="2">
-            <div class="question-text">س2: عند استخدام المتغيرات داخل تعريف الدالة باستخدام الكلمة المفتاحية var، كيف يتم التعامل مع هذه المتغيرات وبارامترات الدالة؟</div>
+            <div class="question-text">Q2: All variables declared with the keyword "var" in function definitions, as well as the function's parameters, are considered:[span_1](start_span)[span_1](end_span)</div>
             <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="A"> تُعتبر متغيرات عامة (Global Variables) يمكن الوصول إليها من أي مكان.</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="B"> تُعتبر متغيرات محلية (Local Variables) مقتصرة على الدالة التي عُرّفت فيها.</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="C"> تُعتبر أجزاءً من كائن الـ document الخارجي فقط.</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="D"> تسبب خطأً برمجياً دائماً عند التشغيل.</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="A"> Global variables</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="B"> Local variables</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="C"> Document properties</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q2" value="D"> Static constants</label></li>
             </ul>
             <div class="rationale" id="rat2"></div>
         </div>
 
+        <!-- Question 3 -->
         <div class="question-card" data-q="3">
-            <div class="question-text">س3: أي من الدوال العالمية (Global Functions) التالية تُعيد القيمة true إذا كانت القيمة الممررة إليها لا تمثل رقماً قانونياً (Not-a-Number)؟</div>
+            <div class="question-text">Q3: Which built-in JavaScript global function takes a numeric argument and returns true if the value of the argument is Not-a-Number?[span_2](start_span)[span_2](end_span)</div>
             <ul class="options-list">
                 <li class="option-item"><label class="option-label"><input type="radio" name="q3" value="A"> isFinite()</label></li>
                 <li class="option-item"><label class="option-label"><input type="radio" name="q3" value="B"> parseInt()</label></li>
@@ -194,80 +198,84 @@
             <div class="rationale" id="rat3"></div>
         </div>
 
+        <!-- Question 4 -->
         <div class="question-card" data-q="4">
-            <div class="question-text">س4: ما هي الطريقة الصحيحة لحجز مصفوفة جديدة تحتوي على 12 عنصراً ديناميكياً في الذاكرة؟</div>
-            <div class="code-block">var c;</div>
+            <div class="question-text">Q4: What is the correct syntax to allocate 12 elements for an integer array 'c' using the new operator?[span_3](start_span)[span_3](end_span)</div>
             <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="A"> c = Array( 12 );</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="B"> c = new Array( 12 );</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="C"> c = allocate Array[ 12 ];</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="D"> c = [12];</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="A"> var c = Array( 12 );</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="B"> var c = new Array( 12 );</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="C"> var c = allocate Array[12];</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q4" value="D"> var c = [12];</label></li>
             </ul>
             <div class="rationale" id="rat4"></div>
         </div>
 
+        <!-- Question 5 -->
         <div class="question-card" data-q="5">
-            <div class="question-text">س5: عند تمرير مصفوفة جافا سكريبت كمعامل (Argument) إلى دالة ما، لماذا لا نحتاج لتمرير حجم المصفوفة بشكل منفصل؟</div>
+            <div class="question-text">Q5: When passing an array object into a function in JavaScript, why do we NOT pass the array's size separately as an argument?[span_4](start_span)[span_4](end_span)</div>
             <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="A"> لأن الدوال تقوم دائماً بزيادة حجم المصفوفات تلقائياً.</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="B"> لأن جافا سكريبت تمرر حجم المصفوفة بشكل خفي في المتغير الخارجي var.</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="C"> لأن كل كائن مصفوفة في جافا سكريبت يعرف حجمه الخاص عبر خاصية الحجم length.</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="D"> لأن حجم المصفوفة ثابت ولا يمكن تغييره أبداً بعد الإنشاء.</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="A"> Because arrays are always of a fixed default size.</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="B"> Because functions automatically resize arrays to zero.</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="C"> Because every array object knows its own size via the 'length' attribute.</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q5" value="D"> Because JavaScript arrays do not support sizing dynamically.</label></li>
             </ul>
             <div class="rationale" id="rat5"></div>
         </div>
 
+        <!-- Question 6 -->
         <div class="question-card" data-q="6">
-            <div class="question-text">س6: بالنظر إلى الكود التالي، ماذا تُرجع الميثود indexOf والميثود lastIndexOf على التوالي؟</div>
+            <div class="question-text">Q6: Given the following array declaration, what will fruits.indexOf("Apple") and fruits.lastIndexOf("Apple") return?[span_5](start_span)[span_5](end_span)</div>
             <div class="code-block">
-var fruits = ["Mango", "Apple", "Orange", "Apple", "Banana"];<br>
-var first = fruits.indexOf("Apple");<br>
-var last = fruits.lastIndexOf("Apple");
+var fruits = ["Banana", "Apple", "Orange", "Apple", "Mango"];
             </div>
             <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="A"> 1 و 3</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="B"> 0 و 4</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="C"> 2 و 2</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="D"> 1- و 1-</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="A"> 1 and 3</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="B"> 0 and 4</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="C"> 2 and 2</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q6" value="D"> -1 and -1</label></li>
             </ul>
             <div class="rationale" id="rat6"></div>
         </div>
 
+        <!-- Question 7 -->
         <div class="question-card" data-q="7">
-            <div class="question-text">س7: كيف يمكن في جافا سكريبت إنشاء مصفوفة مصفوفات (Multidimensional Array) بحيث تحتوي الصفوف على أعداد أعمدة مختلفة (طوال مختلفة لبعض الصفوف)؟</div>
+            <div class="question-text">Q7: How can you declare a two-dimensional array with rows of different lengths dynamically in JavaScript?[span_6](start_span)[span_6](end_span)</div>
             <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="A"> غير ممكن، يجب أن تكون المصفوفة متساوية الأبعاد دائماً.</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="B"> يمكن تخصيصها عبر تهيئتها بقيم مباشرة غير متساوية مثل: <span style="direction:ltr; display:inline-block;">var b = [ [1, 2], [3, 4, 5] ];</span></label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="C"> باستخدام خاصية length المجردة فقط.</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="D"> عبر استدعاء الميثود المدمجة JSON.parse فقط.</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="A"> It is not possible; all rows must have identical column counts.</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="B"> By initializing row allocations separately: <br><small>b = new Array(2); b[0] = new Array(5); b[1] = new Array(3);</small></label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="C"> By executing JSON.stringify() on a basic string literal.</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q7" value="D"> By only using the for...in iteration directly on an empty object wrapper.</label></li>
             </ul>
             <div class="rationale" id="rat7"></div>
         </div>
 
+        <!-- Question 8 -->
         <div class="question-card" data-q="8">
-            <div class="question-text">س8: أي من ميثودات كائن الحساب Math المدمجة تستخدم لتقريب الرقم لـ (أصغر عدد صحيح ليس أقل من الرقم نفسه)؟</div>
+            <div class="question-text">Q8: Which method of the Math object rounds 'x' to the smallest integer NOT less than 'x' (e.g., rounds 9.2 to 10)?[span_7](start_span)[span_7](end_span)</div>
             <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="A"> Math.floor()</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="B"> Math.abs()</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="C"> Math.ceil()</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="D"> Math.round()</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="A"> Math.floor(x)</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="B"> Math.abs(x)</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="C"> Math.ceil(x)</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q8" value="D"> Math.round(x)</label></li>
             </ul>
             <div class="rationale" id="rat8"></div>
         </div>
 
+        <!-- Question 9 -->
         <div class="question-card" data-q="9">
-            <div class="question-text">س9: في كائن الكلمات String، ماذا تُرجع الميثود charAt(index) إذا تم تمرير معامل "Index" يقع خارج حدود السلسلة النصية المحددة؟</div>
+            <div class="question-text">Q9: For String object processing, what does the method charAt(index) return if the specified index is outside the bounds of the string?[span_8](start_span)[span_8](end_span)</div>
             <ul class="options-list">
-                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="A"> تُرجع القيمة الثابتة NaN.</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="B"> تسبب في إيقاف البرنامج فجأة وإظهار خطأ Logic Error.</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="C"> تُرجع سلسلة نصية فارغة ("").</label></li>
-                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="D"> تُرجع القيمة الثابتة null بشكل افتراضي.</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="A"> It returns NaN</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="B"> It throws a critical runtime logic error</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="C"> It returns an empty string ("")</label></li>
+                <li class="option-item"><label class="option-label"><input type="radio" name="q9" value="D"> It returns null</label></li>
             </ul>
             <div class="rationale" id="rat9"></div>
         </div>
 
+        <!-- Question 10 -->
         <div class="question-card" data-q="10">
-            <div class="question-text">س10: ما هي الميثود التابعة لكائن الكود المدمج JSON والتي تمكن المبرمج من تحويل سلسلة نصية مهيأة بصيغة JSON إلى كائن جافا سكريبت فعلي؟</div>
+            <div class="question-text">Q10: Which JSON method is used to parse a JSON object string to create a valid JavaScript object?[span_9](start_span)[span_9](end_span)</div>
             <ul class="options-list">
                 <li class="option-item"><label class="option-label"><input type="radio" name="q10" value="A"> JSON.stringify()</label></li>
                 <li class="option-item"><label class="option-label"><input type="radio" name="q10" value="B"> JSON.parse()</label></li>
@@ -277,7 +285,7 @@ var last = fruits.lastIndexOf("Apple");
             <div class="rationale" id="rat10"></div>
         </div>
 
-        <button type="button" class="btn-submit" onclick="checkQuiz()">إرسال الإجابات وعرض النتيجة</button>
+        <button type="button" class="btn-submit" onclick="checkQuiz()">Submit Answers & View Score</button>
     </form>
 
     <div id="result-section">
@@ -301,33 +309,30 @@ var last = fruits.lastIndexOf("Apple");
     };
 
     const rationales = {
-        q1: "صحيح، تسمى الدوال المدمجة التي تتبع كائنات معينة بالأساليب (Methods).",
-        q2: "صحيح، الكلمة var داخل الدوال تجعل المتغير محلياً (Local Variable) ولا يظهر لبقية البرنامج خارج الدالة.",
-        q3: "صحيح، الدالة العالمية isNaN() تفحص ما إذا كانت القيمة الممررة ليست رقماً قانونياً.",
-        q4: "صحيح، المشغل new Array(size) يقوم بحجز المساحة الكافية للمصفوفة ديناميكياً بالذاكرة.",
-        q5: "صحيح، تمتلك المصفوفات في جافا سكريبت خاصية داخلية تدعى length تخزن حجمها تلقائياً.",
-        q6: "صحيح، indexOf تبحث عن أول ظهور للعنصر (الموقع 1)، و lastIndexOf تبحث عن آخر ظهور له (الموقع 3).",
-        q7: "صحيح، تتيح لغة جافا سكريبت مرونة تامة لإنشاء صفوف مصفوفات بأطوال أعمدة متباينة وغير متساوية.",
-        q8: "صحيح، الميثود Math.ceil تقرب دائماً للأعلى (لأصغر عدد صحيح أكبر من أو يساوي الرقم الممرر).",
-        q9: "صحيح، عند خروج الدليل عن النطاق، فإن charAt تُرجع نصاً فارغاً عكس charCodeAt التي ترجع NaN.",
-        q10: "صحيح، تقوم JSON.parse بتحويل النص المكتوب بصيغة JSON وتبنيه ككائن جافا سكريبت قابل للاستخدام البرمجي."
+        q1: "Correct! Prepackaged functions belonging to JavaScript objects are specifically called methods.[span_10](start_span)[span_10](end_span)",
+        q2: "Correct! Variables declared with 'var' in function definitions and their parameters are local variables.[span_11](start_span)[span_11](end_span)",
+        q3: "Correct! The isNaN() global function tests whether a value equates to NaN (Not-a-Number).[span_12](start_span)[span_12](end_span)",
+        q4: "Correct! The 'new Array(12)' expression instantiates an array with 12 allocated elements.[span_13](start_span)[span_13](end_span)",
+        q5: "Correct! Every JavaScript array object tracks its size internally via the '.length' attribute.[span_14](start_span)[span_14](end_span)",
+        q6: "Correct! indexOf searches for the first occurrence (index 1), and lastIndexOf searches for the last (index 3).[span_15](start_span)[span_15](end_span)",
+        q7: "Correct! You can dynamically allocate dynamic row column counts via individual row 'new Array(size)' operations.[span_16](start_span)[span_16](end_span)",
+        q8: "Correct! Math.ceil(x) rounds a number upward to the nearest integer.[span_17](start_span)[span_17](end_span)",
+        q9: "Correct! If the index is out of bounds, charAt() returns an empty string, while charCodeAt() returns NaN.[span_18](start_span)[span_18](end_span)",
+        q10: "Correct! JSON.parse(jsonString) turns a properly formatted JSON text string into an active object.[span_19](start_span)[span_19](end_span)"
     };
 
     function checkQuiz() {
         let score = 0;
         const total = 10;
 
-        // إظهار التقييم والتعليقات الإيضاحية لكل الأسئلة
         for (let i = 1; i <= total; i++) {
             const qName = 'q' + i;
             const selected = document.querySelector(`input[name="${qName}"]:checked`);
             const ratDiv = document.getElementById('rat' + i);
             
-            // إظهار خانة الشرح
             ratDiv.style.display = 'block';
             ratDiv.innerText = rationales[qName];
 
-            // إزالة الألوان السابقة إن وجدت
             const labels = document.querySelectorAll(`[data-q="${i}"] .option-label`);
             labels.forEach(l => l.className = 'option-label');
 
@@ -339,38 +344,34 @@ var last = fruits.lastIndexOf("Apple");
                 } else {
                     selected.parentElement.className = 'option-label wrong-answer';
                     ratDiv.style.color = '#e74c3c';
-                    // تمييز الإجابة الصحيحة الأصلية للمساعدة في الفهم
                     const correctRadio = document.querySelector(`input[name="${qName}"][value="${answers[qName]}"]`);
                     correctRadio.parentElement.className = 'option-label correct-answer';
                 }
             } else {
-                // إذا لم يختر إجابة، تظهر الإجابة الصحيحة باللون الأخضر
                 const correctRadio = document.querySelector(`input[name="${qName}"][value="${answers[qName]}"]`);
                 correctRadio.parentElement.className = 'option-label correct-answer';
                 ratDiv.style.color = '#7f8c8d';
             }
         }
 
-        // إظهار النتيجة الإجمالية للمستخدم بصندوق منفصل في الأسفل
         const resultSection = document.getElementById('result-section');
         const scoreText = document.getElementById('score-text');
         const feedbackText = document.getElementById('feedback-text');
 
         resultSection.style.display = 'block';
-        scoreText.innerText = `درجتك الإجمالية هي: ${score} من أصل ${total}`;
+        scoreText.innerText = `Your Total Score: ${score} / ${total}`;
 
         if (score >= 8) {
             resultSection.style.backgroundColor = 'rgba(46, 204, 113, 0.2)';
-            feedbackText.innerText = 'أداء ممتاز جداً! أنت جاهز تماماً لاختبار الموديول والاستمرار للمواضيع المتقدمة.';
+            feedbackText.innerText = 'Excellent job! You have fully mastered this module\'s core concepts.';
         } else if (score >= 5) {
             resultSection.style.backgroundColor = 'rgba(241, 196, 15, 0.2)';
-            feedbackText.innerText = 'أداء جيد، لكن يفضل مراجعة الإجابات الصحيحة والتوضيحات المرفقة أسفل الأسئلة لتعزيز استيعابك.';
+            feedbackText.innerText = 'Good attempt. Review the rationale highlights underneath the wrong selections to solidify your knowledge.';
         } else {
             resultSection.style.backgroundColor = 'rgba(231, 76, 60, 0.2)';
-            feedbackText.innerText = 'ننصحك بإعادة قراءة ملف السلايدات (IT361) والتركيز على طريقة التعامل مع المصفوفات والكائنات المدمجة.';
+            feedbackText.innerText = 'We recommend re-reading chapters 9, 10, and 11 from the lecture notes to focus heavily on built-in objects and matrices.';
         }
 
-        // التمرير السلس للأسفل لمشاهدة النتيجة مباشرة
         resultSection.scrollIntoView({ behavior: 'smooth' });
     }
 </script>
